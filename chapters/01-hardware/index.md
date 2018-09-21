@@ -25,7 +25,7 @@ Shopping locally is something that matters to me. After all, small and medium si
 | 1GB Network Switch: [TP Link 8-Port Gigabit Switch](https://www.kabelscheune.de/Switches/TP-Link-8-Port-Gigabit-Switch-Metallgehaeuse.html) | 32.96 EUR | ceil(n/7) |
 | [Cat 7 Lan Cable 25cm](https://www.kabelscheune.de/Cat-7-Kabel/Patchkabel-Cat-7-LAN-Kabel-RJ45-Cat-6a-Stecker-schwarz.html) | 1.49 EUR | n |
 | Power Supply [USB Hub 7 Port](https://www.conrad.de/de/7-port-usb-30-hub-mit-aluminiumgehaeuse-schwarz-629548.html) | 26.63 EUR | ceil(n/7) |
-| USB Cables | ? | n |
+| [Micro USB Cable 60cm](https://www.kabelscheune.de/USB-Kabel-USB-Hub/USB-2-0-Kabel-A-Stecker-Micro-B-Stecker-schwarz.html?listtype=search&searchparam=usb&) | 1.29 EUR | n |
 | Local Storage [16GB Class 10](https://www.conrad.de/de/toshiba-m203-microsdhc-karte-16-gb-class-10-uhs-i-inkl-sd-adapter-1647580.html) | 8.79 EUR | n |
 | [Raspberry PI 3 B+](https://www.conrad.de/de/raspberry-pi-3-model-b-1-gb-ohne-betriebssystem-1668026.html) | 37.99 EUR | n | 
 
