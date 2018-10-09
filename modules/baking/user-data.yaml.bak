@@ -1,0 +1,43 @@
+# vim: set ts=2 sw=2 filetype=yaml:
+hostname: $TEMPLATE_HOSTNAME
+manage_etc_hosts: true
+
+users:
+  - name: r9s
+    gecos: "Raspbernetes User"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: users,docker,video,input
+    plain_text_passwd: r9spwd
+    lock_passwd: false
+    ssh_pwauth: false
+
+locale: "de_DE.UTF-8"
+timezone: "Europe/Berlin"
+
+write_files:
+  - content: |
+      allow-hotplug: wlan0
+      iface wlan0 inet dhcp
+      wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+      iface default inet dhcp
+    path: /etc/network/interfaces.d/wlan0
+  - content: |
+      country=de
+      ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+      update_config=1
+      network={
+        ssid="$TEMPLATE_SSID"
+        psk="$TEMPLATE_PSK"
+        proto=RSN
+        key_mgmt=WPA-PSK
+        pairwise=CCMP
+        auth_alg=OPEN
+      }
+    path: /etc/wpa_supplicant/wpa_supplicant.conf
+  - content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSkvewNpUkKQp/uXNEAMkqQyEjZeLQmcVje9XStvn92cNq3NO2Ij6S+pBtGcB4IYxYjjT8Nv5GxUDS51gZYg/F2Blr4jnOKXkpSyRZwRFiZ05dNaU6DRjK9ETujAdTYa7jmsrbZEejuG8YcVlfJkOvQeRxI+Y6pgAw+hl9ZwcQ8oHwcZbPFJgCbDgOUv6IssLNbKvLgt/vKHcd74oHVN9y+NtpLk4+mdWCzLv/STjshZVxP/Xz896irIBuKEnPhNO1qvTctTVJpEBvwGjA/RgFVjLpY8gSwLHlr5vTcLtKgyMZ7+xr6iKFlSPQovfugokJ5eBYG5Zn4oAy99KuVJbB matthias@rusty-nail"
+    path: /home/r9s/.ssh/authorized_keys
+
+runcmd:
+  - 'systemctl restart avahi-daemon'
+  - 'ifup wlan0'
