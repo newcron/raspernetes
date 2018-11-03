@@ -12,4 +12,4 @@ flash: .download-hypriot-flash
 	@USER_DATA_FILE="/tmp/user-data-$$RANDOM"
 	@META_DATA_FILE="/tmp/meta-data-$$RANDOM"
 	@scripts/prepare-user-data.sh "$$USER_DATA_FILE" "$$META_DATA_FILE"
-	@bin/flash --userdata $$USER_DATA_FILE --metadata $$META_DATA_FILE  $(IMAGE)
+	@bin/flash --device /dev/mmcblk0 --userdata $$USER_DATA_FILE --metadata $$META_DATA_FILE  $(IMAGE)

@@ -1,7 +1,4 @@
 #cloud-config
-# vim: syntax=yaml
-#
-
 
 hostname: "$TEMPLATE_HOSTNAME"
 manage_etc_hosts: true
@@ -13,8 +10,8 @@ users:
     shell: "/bin/bash"
     groups: "users,docker,video,input"
     plain_text_passwd: "r9s"
-    lock_passwd: false
-    ssh_pwauth: false
     ssh_authorized_keys:
       - "$TEMPLATE_CURRENT_SSH_KEY"
-
+    lock_passwd: false
+    ssh_pwauth: false
+    chpasswd: { expire: false }
